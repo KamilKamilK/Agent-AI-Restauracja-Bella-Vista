@@ -1,0 +1,174 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;line-height:1.6;color:#333;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700}
+.section-title{font-size:2.2rem;text-align:center;margin:3rem 0 1rem;color:#2c3e50;position:relative}
+.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:3px;background:linear-gradient(135deg,#e74c3c,#f39c12)}
+
+.btn{display:inline-block;padding:12px 24px;border:none;border-radius:999px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,#e74c3c,#f39c12);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(231,76,60,.3)}
+.btn-secondary{background:transparent;border:2px solid #e74c3c;color:#e74c3c}
+.btn-secondary:hover{background:#e74c3c;color:#fff}
+
+.navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.1)}
+.nav-container{display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo h2{color:#e74c3c}
+.nav-menu{display:flex;list-style:none;gap:2rem}
+.nav-link{text-decoration:none;color:#333;position:relative}
+.nav-link:hover{color:#e74c3c}
+.hamburger{display:none;flex-direction:column}
+.bar{width:25px;height:3px;background:#333;margin:3px 0}
+
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop') center/cover;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;position:relative}
+.hero-content{z-index:1;padding:0 20px;max-width:800px}
+.hero-title{font-size:3.2rem;margin-bottom:1rem}
+.hero-subtitle{font-size:1.25rem;margin-bottom:2rem}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}
+
+.menu-section{padding:100px 0;background:#f8f9fa}
+.menu-tabs{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.menu-tab{padding:10px 20px;border:2px solid #e74c3c;border-radius:999px;background:#fff;color:#e74c3c;font-weight:600;cursor:pointer}
+.menu-tab.active,.menu-tab:hover{background:#e74c3c;color:#fff}
+.menu-category{display:none}
+.menu-category.active{display:block}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+.menu-item{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:all 0.3s ease;position:relative}
+.menu-item:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(0,0,0,.15)}
+.menu-item::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%);transform:translateX(-100%);transition:transform 0.6s ease;z-index:1}
+.menu-item:hover::before{transform:translateX(100%)}
+.menu-item-image{height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;border-radius:8px 8px 0 0}
+.food-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;color:#fff;font-size:64px;font-weight:bold;text-align:center;line-height:1.2;text-shadow:0 4px 8px rgba(0,0,0,0.4);border-radius:8px 8px 0 0}
+.food-placeholder br{font-size:18px;margin-top:12px;font-weight:600;opacity:0.95;letter-spacing:1px}
+.menu-item:hover .food-placeholder{transform:scale(1.08);transition:transform 0.3s ease}
+
+/* Kolorowe gradienty dla każdego dania */
+.food-placeholder.bruschetta{background:linear-gradient(135deg,#ff6b6b 0%,#ee5a24 50%,#ff9ff3 100%)}
+.food-placeholder.calamari{background:linear-gradient(135deg,#4834d4 0%,#686de0 50%,#74b9ff 100%)}
+.food-placeholder.carbonara{background:linear-gradient(135deg,#fdcb6e 0%,#e17055 50%,#fd79a8 100%)}
+.food-placeholder.pizza{background:linear-gradient(135deg,#00b894 0%,#00cec9 50%,#55a3ff 100%)}
+.food-placeholder.tiramisu{background:linear-gradient(135deg,#6c5ce7 0%,#a29bfe 50%,#fd79a8 100%)}
+.food-placeholder.gelato{background:linear-gradient(135deg,#00cec9 0%,#55efc4 50%,#81ecec 100%)}
+.food-placeholder.wine{background:linear-gradient(135deg,#e84393 0%,#fd79a8 50%,#fdcb6e 100%)}
+.food-placeholder.espresso{background:linear-gradient(135deg,#2d3436 0%,#636e72 50%,#74b9ff 100%)}
+.menu-item-content{padding:1.2rem}
+.menu-item-content h3{color:#2c3e50;margin-bottom:.4rem}
+.menu-item-content p{color:#666;margin-bottom:.8rem}
+.price{color:#e74c3c;font-weight:700}
+
+.about-section{padding:100px 0;background:#fff}
+.about-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-image img{width:100%;height:400px;object-fit:cover;border-radius:14px}
+.feature{text-align:center;padding:1rem}
+.feature i{font-size:2rem;color:#e74c3c;margin-bottom:.5rem}
+
+.contact-section{padding:100px 0;background:#f8f9fa}
+.contact-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-item{display:flex;gap:1rem;background:#fff;padding:1.2rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.contact-item i{color:#e74c3c;font-size:1.2rem;margin-top:.2rem}
+.contact-form{background:#fff;padding:1.5rem;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.form-group{margin-bottom:1rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 14px;border:2px solid #e1e8ed;border-radius:8px;font:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:#e74c3c}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+.reservations-section{padding:100px 0;background:#fff}
+.reservation-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.reservation-form{background:#f8f9fa;padding:1.5rem;border-radius:14px}
+
+.footer{background:#2c3e50;color:#fff;padding:50px 0 20px}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:1rem}
+.footer-section h3{color:#e74c3c;margin-bottom:.6rem}
+.footer-bottom{text-align:center;color:#bdc3c7;border-top:1px solid #34495e;padding-top:1rem}
+
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-menu{position:fixed;left:-100%;top:70px;flex-direction:column;background:#fff;width:100%;text-align:center;gap:1.2rem;padding:1.5rem 0;transition:.25s}
+  .nav-menu.active{left:0}
+  .about-content,.contact-content,.reservation-content{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-title{font-size:2.4rem}
+}
+
+
+
+/* Chat theme */
+:root{
+  --chat--color-primary: #f39c12;          /* orange */
+  --chat--color-primary-shade-50: #e67e22; /* hover */
+  --chat--color-primary-shade-100: #d35400;/* active */
+  --chat--color-secondary: #f39c12;
+  --chat--color-secondary-shade-50: #e67e22;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #f8f9fa;
+  --chat--color-light-shade-50: #e9ecef;
+  --chat--color-light-shade-100: #dee2e6;
+  --chat--color-medium: #ced4da;
+  --chat--color-dark: #2c3e50;
+  --chat--color-disabled: #6c757d;
+  --chat--color-typing: #495057;
+
+  --chat--spacing: 1rem;
+  --chat--border-radius: 0.5rem;
+  --chat--transition-duration: 0.3s;
+
+  --chat--window--width: 400px;
+  --chat--window--height: 600px;
+
+  --chat--header-height: auto;
+  --chat--header--padding: var(--chat--spacing);
+  --chat--header--background: var(--chat--color-dark);
+  --chat--header--color: var(--chat--color-white);
+  --chat--header--border-top: none;
+  --chat--header--border-bottom: none;
+  --chat--heading--font-size: 1.5em;
+  --chat--subtitle--font-size: inherit;
+  --chat--subtitle--line-height: 1.6;
+
+  --chat--textarea--height: 50px;
+
+  --chat--message--font-size: 1rem;
+  --chat--message--padding: var(--chat--spacing);
+  --chat--message--border-radius: var(--chat--border-radius);
+  --chat--message-line-height: 1.6;
+  --chat--message--bot--background: var(--chat--color-white);
+  --chat--message--bot--color: var(--chat--color-dark);
+  --chat--message--bot--border: 1px solid var(--chat--color-light);
+  --chat--message--user--background: var(--chat--color-primary);
+  --chat--message--user--color: var(--chat--color-white);
+  --chat--message--user--border: none;
+  --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+
+  --chat--toggle--background: #f39c12;
+  --chat--toggle--hover--background: #e67e22;
+  --chat--toggle--active--background: #d35400;
+  --chat--toggle--color: #ffffff;
+  
+  --chat--textarea--height:56px;
+}
+
+/* Stronger rule to hide "Powered by n8n" row */
+#n8n-chat *:has(> a[href*="n8n"]) {
+  display: none !important;
+}
+
+/* Force chat brand color scoped to widget container */
+#n8n-chat{
+  --chat--color-primary:#f39c12;          /* button base */
+  --chat--color-primary-shade-50:#e67e22; /* hover */
+  --chat--color-primary-shade-100:#d35400;/* active */
+}
+
+/* Force chat buttons (incl. Get Started) to site orange */
+#n8n-chat button{
+  background:#f39c12 !important;
+  border-color:#f39c12 !important;
+  color:#ffffff !important;
+}
+#n8n-chat button:hover{ background:#e67e22 !important; border-color:#e67e22 !important; }
+#n8n-chat button:active{ background:#d35400 !important; border-color:#d35400 !important; }
+
+
+

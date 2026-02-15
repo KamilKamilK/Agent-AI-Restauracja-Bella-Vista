@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restauracja Bella Vista</title>
+  <meta name="description" content="Autentyczna kuchnia włoska. Zobacz menu, zarezerwuj stolik i porozmawiaj z naszym asystentem AI." />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>"> 
+
+  <!-- n8n Chat CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+  <!-- Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><h2>Bella Vista</h2></div>
+      <ul class="nav-menu">
+        <li><a class="nav-link" href="#home">Strona główna</a></li>
+        <li><a class="nav-link" href="#menu">Menu</a></li>
+        <li><a class="nav-link" href="#about">O nas</a></li>
+        <li><a class="nav-link" href="#contact">Kontakt</a></li>
+        <li><a class="nav-link" href="#reservations">Rezerwacje</a></li>
+      </ul>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Witamy w Bella Vista</h1>
+      <p class="hero-subtitle">Autentyczna kuchnia włoska w sercu miasta</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Zobacz menu</a>
+        <a href="#reservations" class="btn btn-secondary">Zarezerwuj stolik</a>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <h2 class="section-title">Nasze Menu</h2>
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-category="appetizers">Przystawki</button>
+        <button class="menu-tab" data-category="main-courses">Dania główne</button>
+        <button class="menu-tab" data-category="desserts">Desery</button>
+        <button class="menu-tab" data-category="beverages">Napoje</button>
+      </div>
+
+      <div class="menu-content">
+        <div id="appetizers" class="menu-category active">
+          <div class="menu-grid">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder bruschetta">🍅<br>Bruschetta</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Bruschetta al Pomodoro</h3>
+                <p>Świeże pomidory, bazylia i mozzarella na tostach</p>
+                <span class="price">45 zł</span>
+              </div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder calamari">🦑<br>Calamari</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Calamari Fritti</h3>
+                <p>Chrupiące smażone kalmary z sosem marinara</p>
+                <span class="price">60 zł</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="main-courses" class="menu-category">
+          <div class="menu-grid">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder carbonara">🍝<br>Carbonara</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Spaghetti alla Carbonara</h3>
+                <p>Klasyczny rzymski makaron z jajkami, serem i pancettą</p>
+                <span class="price">89 zł</span>
+              </div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder pizza">🍕<br>Pizza</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Pizza Margherita</h3>
+                <p>Tradycyjna pizza z pomidorami, mozzarellą i bazylią</p>
+                <span class="price">82 zł</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="desserts" class="menu-category">
+          <div class="menu-grid">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder tiramisu">🍰<br>Tiramisu</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Tiramisu</h3>
+                <p>Biszkopty nasączone kawą z kremem mascarpone</p>
+                <span class="price">52 zł</span>
+              </div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder gelato">🍦<br>Gelato</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Gelato Artigianale</h3>
+                <p>Ręcznie robione włoskie lody</p>
+                <span class="price">30 zł</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="beverages" class="menu-category">
+          <div class="menu-grid">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder wine">🍷<br>Wino</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Domowe Czerwone Wino</h3>
+                <p>Wybór premium włoskich czerwonych win</p>
+                <span class="price">45 zł/kieliszek</span>
+              </div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <div class="food-placeholder espresso">☕<br>Espresso</div>
+              </div>
+              <div class="menu-item-content">
+                <h3>Espresso</h3>
+                <p>Autentyczne włoskie espresso</p>
+                <span class="price">15 zł</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">Nasza Historia</h2>
+          <p>Od 1995 roku Bella Vista serwuje autentyczną kuchnię włoską z najlepszych składników i sprawdzonych receptur.</p>
+          <div class="about-features">
+            <div class="feature"><i class="fas fa-utensils"></i><h3>Świeże Składniki</h3><p>Codziennie pozyskiwane z lokalnych rynków</p></div>
+            <div class="feature"><i class="fas fa-wine-glass-alt"></i><h3>Wybór Win</h3><p>Starannie wyselekcjonowane wina włoskie</p></div>
+            <div class="feature"><i class="fas fa-heart"></i><h3>Przygotowane z Miłością</h3><p>Każde danie przygotowywane z pasją</p></div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Wnętrze Restauracji" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Kontakt</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h3>Adres</h3><p>ul. Główna 123, Centrum</p></div></div>
+          <div class="contact-item"><i class="fas fa-phone"></i><div><h3>Telefon</h3><p>+48 555 123 456</p></div></div>
+          <div class="contact-item"><i class="fas fa-envelope"></i><div><h3>Email</h3><p>info@bellavista.pl</p></div></div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group"><input id="name" name="name" placeholder="Twoje imię" required /></div>
+            <div class="form-group"><input id="email" type="email" name="email" placeholder="Twój email" required /></div>
+            <div class="form-group"><input id="subject" name="subject" placeholder="Temat" required /></div>
+            <div class="form-group"><textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required></textarea></div>
+            <button class="btn btn-primary" type="submit">Wyślij wiadomość</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservations" class="reservations-section">
+    <div class="container">
+      <h2 class="section-title">Zarezerwuj Stolik</h2>
+      <div class="reservation-content">
+        <div class="reservation-info">
+          <h3>Zarezerwuj Swój Stolik</h3>
+          <p>Zarezerwuj stolik na niezapomniane doświadczenie kulinarne.</p>
+        </div>
+        <div class="reservation-form">
+          <form id="reservationForm">
+            <div class="form-row">
+              <div class="form-group"><input id="resName" name="name" placeholder="Twoje imię" required /></div>
+              <div class="form-group"><input id="resEmail" type="email" name="email" placeholder="Twój email" required /></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><input id="resPhone" name="phone" placeholder="Numer telefonu" required /></div>
+              <div class="form-group">
+                <select id="resGuests" name="guests" required>
+                  <option value="">Liczba gości</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><input id="resDate" type="date" name="date" required /></div>
+              <div class="form-group">
+                <select id="resTime" name="time" required>
+                  <option value="">Preferowana godzina</option>
+                  <option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option>
+                  <option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><textarea id="resNotes" name="notes" placeholder="Specjalne życzenia" rows="3"></textarea></div>
+            <button class="btn btn-primary" type="submit">Zarezerwuj stolik</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Bella Vista</h3>
+          <p>Autentyczna kuchnia włoska w ciepłej, gościnnej atmosferze.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Godziny otwarcia</h3>
+          <p>Pon-Czw: 17:00–22:00 • Pt-Sob: 17:00–23:00 • Ndz: 16:00–21:00</p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Restauracja Bella Vista</p></div>
+    </div>
+  </footer>
+
+  <!-- n8n Chat Container -->
+  <div id="n8n-chat"></div>
+
+    <!-- n8n Chat Script -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://n8n.hekatomba.com.pl/webhook/7d4ea505-0ccb-4dff-8b0b-147bff870bdd/chat';
+      mode: 'window',
+      showWelcomeScreen: true,
+      initialMessages: [
+        'Cześć! 👋',
+        'Witamy w Restauracji Bella Vista! Jestem Twoim asystentem AI i jestem tutaj, aby pomóc Ci z rezerwacjami, pytaniami o menu i wszystkim, czego potrzebujesz. Jak mogę Ci dzisiaj pomóc?'
+      ],
+      i18n: {
+        en: {
+          title: 'Asystent Bella Vista 👨‍🍳',
+          subtitle: "Jestem tutaj, aby pomóc z rezerwacjami, pytaniami o menu i nie tylko!",
+          footer: '',
+          getStarted: 'W czym możemy pomóc?',
+          inputPlaceholder: 'Zapytaj o nasze menu, zarezerwuj stolik lub zadaj dowolne pytanie...',
+        },
+      },
+      enableStreaming: false,
+      allowFileUploads: false
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html> 

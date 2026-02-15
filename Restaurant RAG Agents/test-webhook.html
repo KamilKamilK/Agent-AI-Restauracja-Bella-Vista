@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>n8n Webhook Test</title>
+<style>body{font-family:system-ui,Arial,sans-serif;max-width:880px;margin:40px auto;padding:0 16px;background:#f6f7f9} .card{background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.06);padding:20px;margin:14px 0} button{background:#e74c3c;color:#fff;border:none;border-radius:8px;padding:10px 14px;cursor:pointer} pre{white-space:pre-wrap;background:#0b1020;color:#e6e6e6;padding:14px;border-radius:8px;overflow:auto}</style>
+</head>
+<body>
+  <h1>🔧 n8n Webhook Test</h1>
+  <div class="card">
+    <p><strong>Webhook URL</strong>: <code id="url"></code></p>
+    <button onclick="ping()">Ping</button>
+    <button onclick="sendMsg()">Send chatMessage</button>
+    <button onclick="loadSession()">Load previous session</button>
+    <pre id="out"></pre>
+  </div>
+<script>
+const webhookUrl = 'https://n8n.hekatomba.com.pl/webhook/7d4ea505-0ccb-4dff-8b0b-147bff870bdd/chat';
+document.getElementById('url').textContent = webhookUrl;
+const out = document.getElementById('out');
+
+async function ping(){ out.textContent=''; try{ const r=await fetch(webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'sendMessage',chatInput:'hello'})}); out.textContent = await r.text(); }catch(e){ out.textContent = 'Error: '+e.message; } }
+
+async function sendMsg(){ out.textContent=''; try{ const r=await fetch(webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'sendMessage',chatInput:'Can you help me book a table?',sessionId:'test-'+Date.now()})}); out.textContent = await r.text(); }catch(e){ out.textContent = 'Error: '+e.message; } }
+
+async function loadSession(){ out.textContent=''; try{ const r=await fetch(webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'loadPreviousSession',sessionId:'test-'+Date.now()})}); out.textContent = await r.text(); }catch(e){ out.textContent = 'Error: '+e.message; } }
+</script>
+</body></html> 
